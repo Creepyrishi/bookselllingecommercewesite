@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ data_list.name }}{% endblock %}
+
+{% block content %}
+
+</div>
+</div>
+</section>
+<!-- Products -->
+
+<section>
+  <div class="container my-5">
+    <header class="mb-4">
+      <h3>Showing the result for - {{ data_list.name }}</h3>
+    </header>
+
+    <div class="row">
+      {% for data in data_list.list %}
+      <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+        <div class="card w-100 my-2 shadow-2-strong">
+          <img src={{ data.img }} class="card-img-top" style="aspect-ratio: 1 / 1" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ data.name }}</h5>
+            <p class="card-text">{{ data.price }}</p>
+            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+              <button id="{{ data.id}}"
+                class="btn btn-primary shadow-0 me-1 purchasebutton">Purchase</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+<!-- Products -->
+{% endblock %}

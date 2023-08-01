@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Sasto Books - {% block title %}{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}" type="image/x-icon">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mdb.min.css') }}">
+    <!-- Custom styles -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
+<body>
+    <!--Main Navigation-->
+    <header>
+        <!-- Jumbotron -->
+        <div class="p-3 text-center bg-white border-bottom">
+            <div class="container">
+                <div class="row gy-3">
+                    <!-- Left elements -->
+                    <div class="col-lg-2 col-sm-4 col-4">
+                        <a href="{{ url_for('home') }}" class="float-start">
+                            <img src="{{ url_for('static', filename='img/logo.png') }}" height="35" />
+                        </a>
+                    </div>
+                    <!-- Left elements -->
+
+                    <!-- Center elements -->
+                    <div class="order-lg-last col-lg-5 col-sm-8 col-8">
+                        <div class="d-flex float-end">
+                            <a href="/auth" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"
+                                target="_blank"> <i class="fas fa-user-alt m-1 me-md-2"></i>
+                                <p class="d-none d-md-block mb-0">Sign in</p>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Center elements -->
+
+                    <!-- Right elements -->
+                    <form action="/search" method="get" class="col-lg-5 col-md-12 col-12">
+                        <div>
+                            <div class="input-group float-center">
+                                <div class="form-outline">
+                                    <input type="search" id="search" class="form-control" name="search" required />
+                                    <label class="form-label" for="search">Search</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary shadow-0">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- Right elements -->
+                </div>
+            </div>
+        </div>
+        <!-- Jumbotron -->
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <!-- Container wrapper -->
+            <div class="container justify-content-center justify-content-md-between">
+                <!-- Toggle button -->
+                <button class="navbar-toggler border py-2 text-dark" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="{{ url_for('home') }}">Home</a>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#">Account</a>
+                        </li>
+
+                    </ul>
+                    <!-- Left links -->
+                </div>
+            </div>
+            <!-- Container wrapper -->
+        </nav>
+        <!-- Navbar -->
+
+        <main>
+
+            {% block content %}
+            {% endblock %}
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center text-lg-start text-muted mt-3" style="background-color: #f5f5f5;">
+            <!-- Section: Links  -->
+            <section class="">
+                <div class="container text-center text-md-start pt-4 pb-4">
+                    <!-- Grid row -->
+                    <div class="row mt-3">
+                        <!-- Grid column -->
+                        <div class="col-12 col-lg-3 col-sm-12 mb-2">
+                            <!-- Content -->
+                            <a href="https://mdbootstrap.com/" target="_blank" class="">
+                                <img src="{{ url_for('static', filename='img/logo.png') }}" height="35" />
+                            </a>
+                            <p class="mt-2 text-dark">
+                                © 2023 Copyright: Sasto Books
+                            </p>
+                        </div>
+                        <!-- Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-12 col-sm-12 col-lg-3">
+                            <!-- Links -->
+                            <h6 class="text-uppercase text-dark fw-bold mb-2">Newsletter</h6>
+                            <p class="text-muted">Stay in touch with latest updates about our products and offers</p>
+                            <div class="input-group mb-3">
+                                <a href="/auth" class="btn btn-light border shadow-0" type="button" id="button-addon2"
+                                    data-mdb-ripple-color="dark">
+                                    Join
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Grid column -->
+                    </div>
+                    <!-- Grid row -->
+                </div>
+            </section>
+            <!-- Section: Links  -->
+
+            <div class="">
+                <div class="container">
+                    <div class="d-flex justify-content-between py-4 border-top">
+                        <!--- social --->
+                        <div>
+                            <i class="fa-brands fa-instagram"><a href="https://www.instagram.com/sastobook/"></a></i>
+                        </div>
+                        <!--- social --->
+
+
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer -->
+        <!-- MDB -->
+        <script src="{{ url_for('static', filename='js/mdb.min.js') }}"></script>
+        <!-- Custom scripts -->
+        <script type="text/javascript" src="js/script.js"></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        <script>
+            // Get all elements with the class 'dynamic-button'
+            var dynamicButtons = document.querySelectorAll('.purchasebutton');
+
+            // Define the click event listener function
+            function handleClick(event) {
+                // Get the ID of the clicked button using event.target.id
+                var buttonId = event.target.id;
+
+                // Display the ID in the console (you can do any other action with the ID here)
+                const url = `/view?id=${buttonId}`;
+                var currentURL = window.location.href;
+                var baseURL = currentURL.substring(0, currentURL.lastIndexOf('/') + 1);
+                // Redirect the user to the Flask route
+                window.location.href = `${baseURL}${url}`;
+            }
+
+            // Add click event listeners to all the dynamic buttons
+            dynamicButtons.forEach(function (button) {
+                button.addEventListener('click', handleClick);
+            });
+
+        </script>
+</body>
+
+</html>

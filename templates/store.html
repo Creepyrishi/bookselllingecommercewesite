@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}store{% endblock %}
+
+{% block content %}
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+
+  .floating-links {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;
+  }
+
+  .linkxxx {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1;
+    border: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+
+  .link-hydrogen {
+    margin-bottom: 10px;
+  }
+
+  .linkxxx:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+  }
+
+  .iconxxx {
+    font-size: 36px;
+    line-height: 36px;
+  }
+
+  @media (max-width: 768px) {
+    .floating-links {
+      left: 10px;
+      bottom: 10px;
+    }
+  }
+</style>
+
+<div class="floating-links">
+  <a class="linkxxx link-hydrogen" id="link-hydrogen" href="#Hot">
+    <span class="iconxxx">H</span>
+  </a>
+  <a class="linkxxx link-nitrogen" id="link-nitrogen" href="#New">
+    <span class="iconxxx">N</span>
+  </a>
+</div>
+<!-- Products -->
+
+<section id="Hot">
+  <div class="container my-5">
+    <header class="mb-4">
+      <h3>Hot Books</h3>
+    </header>
+
+    <div class="row hot">
+      {% for data in data_list.hot %}
+      <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+        <div class="card w-100 my-2 shadow-2-strong">
+          <img src={{ data.img }} class="card-img-top" style="aspect-ratio: 1 / 1" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ data.name }}</h5>
+            <p class="card-text">{{ data.price }}</p>
+            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+              <button id="{{ data.id }}" class="btn btn-primary shadow-0 me-1 purchasebutton">Purchase</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+<!-- Products -->
+
+<section id="New">
+  <div class="container my-5">
+    <header class="mb-4">
+      <h3>New Books</h3>
+    </header>
+
+    <div class="row new">
+      {% for data in data_list.new %}
+      <div class="col-lg-3 col-md-6 col-sm-6 d-flex">
+        <div class="card w-100 my-2 shadow-2-strong">
+          <img src={{ data.img }} class="card-img-top" style="aspect-ratio: 1 / 1" />
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ data.name }}</h5>
+            <p class="card-text">{{ data.price }}</p>
+            <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto">
+              <button id="{{ data.id }}" class="btn btn-primary shadow-0 me-1 purchasebutton">Purchase</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+<!-- Products -->
+{% endblock %}

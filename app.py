@@ -73,5 +73,7 @@ def store():
 @app.route("/view", methods=['GET'])
 def view():
     id = request.args.get('id')
-    return render_template('detail.html')
+    record = db.getid(id)
+    print(record)
+    return render_template('detail.html', data = record)
 app.run(debug=True)

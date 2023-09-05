@@ -22,7 +22,7 @@ def newBooks():
     # Process the records
     data = []
     for record in records:
-        # Extract the 'name', 'price', and 'img' fields from each record and add them to the data list
+        
         fields = record['fields']
         name = fields.get('name')
         price = fields.get('price')
@@ -39,7 +39,7 @@ def newBooks():
     # Process the records
     data = []
     for record in records:
-        # Extract the 'name', 'price', and 'img' fields from each record and add them to the data list
+       
         fields = record['fields']
         name = fields.get('name')
         price = fields.get('price')
@@ -56,7 +56,7 @@ def hotBooks():
     # Process the records
     data = []
     for record in records:
-        # Extract the 'name', 'price', and 'img' fields from each record and add them to the data list
+       
         fields = record['fields']
         name = fields.get('name')
         price = fields.get('price')
@@ -67,16 +67,16 @@ def hotBooks():
     return data
 
 def search(name):
-    # Fetch all records from the table
+
     records = airtable.get_all()
 
     # Process the records
     data = []
     for record in records:
-        # Extract the fields from each record
+
         fields = record['fields']
         print(record)
-        # Check if the field value (e.g., 'Name') contains the specified name as a substring
+
         if name.upper() in fields['name'].upper():
             data.append(fields)
 

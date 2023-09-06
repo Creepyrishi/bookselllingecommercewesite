@@ -1,7 +1,7 @@
 from airtable import Airtable
 import env
 
-# Replace these with your own Airtable API key and base ID
+
 AIRTABLE_API_KEY = env.airtableApi()
 AIRTABLE_BASE_ID = env.airtablebase()
 

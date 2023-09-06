@@ -13,28 +13,30 @@ def home():
 
 #auth routes
 @app.route("/auth")
-def authantication():
+def auth():
     return render_template('auth.html')
 
 
 @app.route('/signup', methods=['POST'])
 def signup():
-
     firstname = request.form.get('form-first-name')
     lastname = request.form.get('form-last-name')
-    email = request.form.get('form-email')
-
-    try:
-        
-        
+    email = request.form.get('form-email-signup')
+    password = request.form.get('form-password-signup')
+    
+    if (authtication.signup(firstname, lastname, email, password)) == 200:
         return render_template('notice.html', notice='Goto mail and verify your account')
-    except Exception as e:
+    elif (authtication.signup(firstname, lastname, email, password)) == 409:
+        return render_template('notice.html', notice='Mail already in use')
+    else:
         return render_template('notice.html', notice="Something went wrong")
-
+            
 @app.route('/login', methods=['POST'])
 def login():
-    email = request.form.get('email')
-    password = request.form.get('password')
+    email = request.form.get('form-username')
+    password = request.form.get('form-password')
+
+    return '200'
 
 ##
 
@@ -63,5 +65,8 @@ def view():
     print(record)
     return render_template('detail.html', data = record)
 
+@app.route("/verify")
+def verify():
+    return render_template('otpverification.html', email = "helo@gmail.com")
 
 app.run(debug=True)

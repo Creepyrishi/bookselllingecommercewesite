@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <style>
+        /* Custom CSS to center the element */
+        body, html {
+            height: 100%;
+        }
+        .center-div {
+            height: 100%;
+            display: flex ;
+            flex-direction: column !important;
+            justify-content: center !important ;
+            align-items: center !important;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="center-div">
+            <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">OTP has been sent to {{ email }}</label>
+                  <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter OTP">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div>
+      <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+
+</html>
